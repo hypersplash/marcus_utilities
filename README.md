@@ -1,4 +1,4 @@
-# marcus-utilities.io
+# marcus-utilities
 **A bunch of minimal, no-nonsense tools. In HTML.**
 
 No installs. No logins. No ads. Just utilities that *work.*
