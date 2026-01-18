@@ -1,26 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta tags for character set and viewport -->
+  <!-- Meta tags for character set, compatibility, and viewport settings -->
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Page Title -->
   <title>Marcus's Utilities</title>
   
-  <!-- External CSS Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Internal CSS for styling the page -->
+  <style>
+    /* Universal box-sizing and reset for margin/padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles: sets up a dark theme and centers content */
+    body {
+      font-family: monospace;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    /* Main heading style */
+    h1 {
+      font-size: 48px;
+      margin-bottom: 40px;
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+
+    /* Grid container for the links */
+    .links-container {
+      display: grid;
+      /* Creates a responsive grid that fits as many 200px columns as possible */
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    /* Styling for the link buttons */
+    .link-btn {
+      background: #000;
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 20px;
+      font-family: monospace;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      /* Smooth transition for hover effects */
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    /* Hover effect for link buttons */
+    .link-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Main heading for the page -->
+  <!-- Main heading of the page -->
   <h1>Marcus's Utilities</h1>
   
-  <!-- Container where JavaScript will dynamically insert the links -->
+  <!-- This container will be populated by the JavaScript below -->
   <div class="links-container" id="links"></div>
 
-  <!-- External JavaScript file, deferred to prevent render-blocking -->
-  <script src="script.js" defer></script>
-  
+  <!-- Internal JavaScript for dynamic content -->
+  <script>
+    /**
+     * Configuration array for the links.
+     * To add a new link, add a new object to this array with a 'name' and 'url'.
+     */
+    const links = [
+      { name: 'Calculator', url: 'https://hypersplash.github.io/fastcrumbs/' },
+      { name: 'Clock', url: 'https://hypersplash.github.io/chrono.io/' },
+      { name: 'Wallpapers', url: 'https://github.com/hypersplash/Wallpapers' },
+    ];
+
+    /**
+     * Main function to create and inject link buttons into the DOM.
+     */
+    function generateLinks() {
+      // Find the container element in the HTML
+      const container = document.getElementById('links');
+      if (!container) {
+        console.error("Error: Link container not found.");
+        return;
+      }
+
+      // Loop through each link object in the configuration array
+      links.forEach(link => {
+        // Create a new anchor (<a>) element
+        const btn = document.createElement('a');
+        
+        // Set the element's properties
+        btn.href = link.url;
+        btn.className = 'link-btn';
+        btn.textContent = link.name;
+        
+        // Open link in a new tab for security and user experience
+        btn.target = '_blank';
+        btn.rel = 'noopener noreferrer';
+        
+        // Add the newly created button to the container
+        container.appendChild(btn);
+      });
+    }
+
+    // Run the main function when the page loads
+    generateLinks();
+  </script>
 </body>
 </html>
