@@ -19,7 +19,7 @@ Here’s what Marcus’s Utilities is good for:
 
 # How to Use
 ## Online
-Visit [hypersplash.github.io/marcus-utilities](https://hypersplash.github.io/marcus-utilities/)  
+Visit [hypersplash.github.io/marcus_utilities](https://hypersplash.github.io/marcus_utilities/)  
 and pick whatever utility you need.
 
 ---
