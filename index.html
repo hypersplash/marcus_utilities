@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcus's Utilities</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: monospace;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 40px;
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+    .links-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      width: 100%;
+    }
+    .link-btn {
+      background: #000;
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 20px;
+      font-family: monospace;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .link-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Marcus's Utilities</h1>
+  <div class="links-container" id="links"></div>
+
+  <script>
+    // Add your links here
+    const links = [
+      { name: 'Calculator', url: 'https://hypersplash.github.io/fastcrumbs/' },
+      { name: 'Clock', url: 'https://hypersplash.github.io/chrono.io/' },
+    ];
+
+    const container = document.getElementById('links');
+    
+    links.forEach(link => {
+      const btn = document.createElement('a');
+      btn.href = link.url;
+      btn.className = 'link-btn';
+      btn.textContent = link.name;
+      container.appendChild(btn);
+    });
+  </script>
+</body>
+</html>
